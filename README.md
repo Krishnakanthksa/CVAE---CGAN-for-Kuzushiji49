@@ -18,7 +18,18 @@ The processed dataset was visualized to verify correctness, ensuring that the in
 The C-VAE is an extension of the traditional VAE, where the model is conditioned on additional labels. In this project, the encoder takes an image and its corresponding class and style labels to map them into a latent space. The decoder then reconstructs the image from this latent representation while considering the same labels.
 
 Key aspects of the C-VAE include:
-	•	A latent space that enables controlled sampling, allowing the generation of new images based on desired class and style labels.
-	•	A training process that combines reconstruction loss and a regularization term (KL Divergence), ensuring that the latent space is well-organized and meaningful.
+1. A latent space that enables controlled sampling, allowing the generation of new images based on desired class and style labels.
+2. A training process that combines reconstruction loss and a regularization term (KL Divergence), ensuring that the latent space is well-organized and meaningful.
 
 During training, the C-VAE consistently generated smooth and coherent images. Although these images sometimes appeared slightly blurry due to the reconstruction-focused loss function, the model demonstrated stable and efficient training.
+
+
+## Conditional Generative Adversarial Network (C-GAN)
+
+The C-GAN takes a different approach. It consists of two competing networks:
+1. The Generator creates images conditioned on random noise and labels, attempting to produce realistic outputs.
+2. The Discriminator evaluates whether the generated images are real or fake while considering the same labels.
+
+This adversarial framework makes C-GANs powerful but also introduces challenges. The generator strives to “fool” the discriminator, leading to sharper and more detailed images. However, training requires careful hyperparameter tuning to avoid instability.
+
+Despite these challenges, the C-GAN successfully produced high-quality, realistic images. Over multiple epochs, the generated samples improved significantly, showcasing the potential of adversarial learning.
